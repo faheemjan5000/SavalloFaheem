@@ -23,13 +23,13 @@ export default class Registration extends React.Component {
                    surname: event.target.surname,
                    email: event.target.email,
                    password: event.target.password,
-                      
+                         
                   });
   }
 
 
   handleSubmit(event) {
-    alert('A user was submitted: ' + this.state.name);
+   event.preventDefault();
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -42,7 +42,7 @@ export default class Registration extends React.Component {
                                       email: this.state.email,
                                       password: this.state.password,
         }));
-    event.preventDefault();
+    
     
    
   }
@@ -56,13 +56,13 @@ export default class Registration extends React.Component {
       <form onSubmit={this.handleSubmit}>
         
           Name:<br/>
-          <input type="text" name="name" value={this.state.name} onChange={this.handleChange} /> <br/>
+          <input type="text" name="name" onChange={this.handleChange} /> <br/>
           surname:<br/>
-          <input type="text" name="surname" value={this.state.surname} onChange={this.handleChange} /> <br/>
+          <input type="text" name="surname" onChange={this.handleChange} /> <br/>
           Email:<br/>
-          <input type="text" name="email"  value={this.state.email} onChange={this.handleChange} /> <br/>
+          <input type="text" name="email" onChange={this.handleChange} /> <br/>
          Password:<br/>
-          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} /> <br/><br/>
+          <input type="password" name="password" onChange={this.handleChange} /> <br/><br/>
         
         <input type="submit" value="Submit" />
       </form>
@@ -70,7 +70,7 @@ export default class Registration extends React.Component {
     );
   }
 }
-ReactDOM.render(<Registration />, document.getElementById('root'));
+
 
 
 
