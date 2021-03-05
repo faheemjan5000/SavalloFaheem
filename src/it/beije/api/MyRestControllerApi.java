@@ -35,8 +35,8 @@ private ProductService productService;
 @Autowired
 private OrderService orderService;
 	
-	@RequestMapping(value = {"/", "index"}, method = RequestMethod.GET)
-	public List<Product> index(HttpServletRequest request, Model model) {
+	@RequestMapping(value = {"/prodotti"}, method = RequestMethod.GET)
+	public List<Product> listaprodotti(HttpServletRequest request, Model model) {
 		List<Product> prodotti=productService.returnProducts();
 		return prodotti;
 	}
