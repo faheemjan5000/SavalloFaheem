@@ -1,7 +1,13 @@
-class Registration extends React.Component {
+import React from "react";
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+export default class Registration extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {name: 'pippo',
+    this.state = {name: '',
                   surname : '',
                   email : '',
                   password : ''
@@ -20,11 +26,7 @@ class Registration extends React.Component {
                   });
   }
 
-  handleSubmit(event) {
-    alert('A user was submitted: ' + this.state.name);
-    event.preventDefault();
-    
-    componentDidMount() {
+  componentDidMount() {
    
     const requestOptions = {
         method: 'POST',
@@ -35,6 +37,12 @@ class Registration extends React.Component {
         .then(response => response.json())
         .then(data => this.setState({ postId: data.id }));
 }
+
+  handleSubmit(event) {
+    alert('A user was submitted: ' + this.state.name);
+    event.preventDefault();
+    
+   
   }
 
 
@@ -61,7 +69,3 @@ class Registration extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Registration />,
-  document.getElementById('root')
-);
