@@ -19,7 +19,7 @@ export default class ListaProdotti extends React.Component {
                 console.table(result);
               this.setState({
                 isLoaded: true,
-                items: result.items
+                items: result
               });
             },
             // Note: it's important to handle errors here
@@ -44,7 +44,7 @@ export default class ListaProdotti extends React.Component {
           return (
         <div className="prodotti">           
       {items.map(item => (
-                <Prodotto id={item.id}  name={item.name}/>
+                <Prodotto id={item.id} key={item.id} name={item.name}/>
               ))}
             </div> 
           );
