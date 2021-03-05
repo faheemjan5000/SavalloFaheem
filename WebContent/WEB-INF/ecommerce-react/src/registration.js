@@ -23,10 +23,8 @@ class Registration extends React.Component {
   handleSubmit(event) {
     alert('A user was submitted: ' + this.state.name);
     event.preventDefault();
-  }
-
-
-componentDidMount() {
+    
+    componentDidMount() {
    
     const requestOptions = {
         method: 'POST',
@@ -37,6 +35,10 @@ componentDidMount() {
         .then(response => response.json())
         .then(data => this.setState({ postId: data.id }));
 }
+  }
+
+
+
   render() {
     return (
       <div>
