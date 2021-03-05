@@ -30,19 +30,19 @@ export default class Registration extends React.Component {
 
   handleSubmit(event) {
    event.preventDefault();
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title: 'React POST Request Example' })
-    };
-    fetch('http://localhost:8080/SavalloFaheem/registrazione', requestOptions)
-        .then(response => response.json())
-        .then(data => this.setState({ name:  this.state.name,
-                                      surname: this.state.surname,
-                                      email: this.state.email,
-                                      password: this.state.password,
-        }));
-    
+   fetch('http://localhost:8080/SavalloFaheem/registrazione/', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'this.state.name',
+    surname: 'this.state.surname',
+    email: 'this.state.email',
+    password: 'this.state.password',
+  })
+})
     
    
   }
