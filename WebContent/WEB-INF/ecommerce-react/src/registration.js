@@ -7,10 +7,11 @@ import reportWebVitals from './reportWebVitals';
 export default class Registration extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {name: '',
-                  surname : '',
-                  email : '',
-                  password : ''
+    this.state = {
+                  name:'',
+                  surname: '',
+                  email: '',
+                  password : null,
                  };
 
     this.handleChange = this.handleChange.bind(this);
@@ -26,8 +27,9 @@ export default class Registration extends React.Component {
                   });
   }
 
-  componentDidMount() {
-   
+
+  handleSubmit(event) {
+    alert('A user was submitted: ' + this.state.name);
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -35,11 +37,11 @@ export default class Registration extends React.Component {
     };
     fetch('http://localhost:8080/SavalloFaheem/registrazione', requestOptions)
         .then(response => response.json())
-        .then(data => this.setState({ postId: data.id }));
-}
-
-  handleSubmit(event) {
-    alert('A user was submitted: ' + this.state.name);
+        .then(data => this.setState({ name:  this.state.name,
+                                      surname: this.state.surname,
+                                      email: this.state.email,
+                                      password: this.state.password,
+        }));
     event.preventDefault();
     
    
@@ -58,7 +60,7 @@ export default class Registration extends React.Component {
           surname:<br/>
           <input type="text" name="surname" value={this.state.surname} onChange={this.handleChange} /> <br/>
           Email:<br/>
-          <input type="text" name="name"  value={this.state.email} onChange={this.handleChange} /> <br/>
+          <input type="text" name="email"  value={this.state.email} onChange={this.handleChange} /> <br/>
          Password:<br/>
           <input type="password" name="password" value={this.state.password} onChange={this.handleChange} /> <br/><br/>
         
@@ -68,4 +70,7 @@ export default class Registration extends React.Component {
     );
   }
 }
+ReactDOM.render(<Registration />, document.getElementById('root'));
+
+
 
