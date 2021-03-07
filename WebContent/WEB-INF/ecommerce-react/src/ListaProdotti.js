@@ -42,7 +42,7 @@ export default class ListaProdotti extends React.Component {
           return <div>Loading...</div>;
         } else {
           return (
-        <div className="prodotti">           
+        <div className="listaprodotti">           
       {items.map(item => (
                 <Prodotto id={item.id} key={item.id} name={item.name}/>
               ))}

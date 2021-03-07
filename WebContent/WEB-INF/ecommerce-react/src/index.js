@@ -3,13 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Registration from './registration'
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Registration />
+    
   </React.StrictMode>,
-  document.getElementById('content')
+  document.getElementById('Content')
 );
 
 // If you want to start measuring performance in your app, pass a function
