@@ -9,7 +9,7 @@ export default class NavBar extends React.Component {
         this.state = {
           error: null,
           isLoaded: false,
-          userss:null
+          userss:null,
         };
     }
     componentDidMount() {

@@ -42,3 +42,8 @@ body{
     height: 400px;
     margin-top:30px;
     }
+    .price{
+
+        color:green;
+        font-size: 30px;
+    }

@@ -47,7 +47,7 @@ public class MyRestControllerApi {
 		List<Product> prodotti=productService.returnProducts();
 		return prodotti;
 	}
-
+	@CrossOrigin(origins="http://localhost:3000")
 	@GetMapping("/session/user")
 	public Users utenteSession(HttpServletRequest request, HttpSession session) {
 		System.out.println("sono in sessiione provo a vedere l'utente"+(Users)(session.getAttribute("users")));
@@ -59,7 +59,7 @@ public class MyRestControllerApi {
 		else 
 			return new Users();
 	}
-	
+	  @CrossOrigin(origins="http://localhost:3000")
 	@PostMapping("/login/user")
 	public Users loginSession( @RequestBody Users utente,HttpServletRequest request) {
 		Users inDB=userService.findByEmail(utente.getEmail());
@@ -72,6 +72,8 @@ public class MyRestControllerApi {
 
 				return inDB;
 			}
+		System.out.println("sono nel login registro null "+null);
+
 		return null;
 	}
 

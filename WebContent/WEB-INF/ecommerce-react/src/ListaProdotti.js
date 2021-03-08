@@ -39,7 +39,7 @@ export default class ListaProdotti extends React.Component {
         if (error) {
           return <div>Attenzione : {error.message}</div>;
         } else if (!isLoaded) {
-          return <div>Loading...</div>;
+          return <div>Caricamento in corso.......</div>;
         } else {
           return (
         <div className="listaprodotti">           

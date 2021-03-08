@@ -57,6 +57,7 @@ export default class LoginComponent extends React.Component {
         event.preventDefault();
 
       });
+
     }
 
       render() {
@@ -86,6 +87,7 @@ export default class LoginComponent extends React.Component {
             );
       }else{ 
         if(this.state.user!=null&&this.state.user.id!=null)
+        if(this.state.password===this.state.user.password)
         return(
 <div>
 Benvenuto {this.user.firstName}   {this.user.secondName}
@@ -113,6 +115,33 @@ Benvenuto {this.user.firstName}   {this.user.secondName}
         <input type="submit" value="Submit" />
       </form>
             );
+            else{
+              return (
+                <form onSubmit={this.handleSubmit}>
+              <label>
+          Nome:
+          <input
+            type="text"
+            name="email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            type="password"
+            name="password"
+            value={this.state.password}
+            onChange={this.handleChange}
+          />
+        </label>
+            <input type="submit" value="Submit" />
+            <p>Attenzione email o password errataa</p>
+          </form>
+                );
+
+            }
 
     
     
