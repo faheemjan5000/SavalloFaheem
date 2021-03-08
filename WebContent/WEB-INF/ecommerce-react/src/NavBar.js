@@ -16,7 +16,7 @@ export default class NavBar extends React.Component {
       console.log("User prima");
       console.log(this.state.userss);
       fetch("http://localhost:8080/AnankeSpring/api/session/user")
-        .then(res => res.json())
+        .then(res => res.text())
         .then(
           (result) => {
               console.table("utente: "+result);
