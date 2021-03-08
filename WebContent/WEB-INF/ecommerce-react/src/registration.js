@@ -41,8 +41,8 @@ export default class Registration extends React.Component {
     surname: 'this.state.surname',
     email: 'this.state.email',
     password: 'this.state.password',
-  })
-})
+  });
+})l
     
    
   }
