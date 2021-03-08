@@ -9,8 +9,8 @@ export default class Registration extends React.Component {
     super(props);
     this.state = {
                   name:'',
-                  surname: '',
-                  email: '',
+                  surname:'',
+                  email:'',
                   password : null,
                  };
 
@@ -30,7 +30,7 @@ export default class Registration extends React.Component {
 
   handleSubmit(event) {
    event.preventDefault();
-   fetch('http://localhost:8080/SavalloFaheem/registrazione/', {
+   fetch('http://localhost:8080/SavalloFaheem/api/users/add', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
@@ -41,8 +41,8 @@ export default class Registration extends React.Component {
     surname: 'this.state.surname',
     email: 'this.state.email',
     password: 'this.state.password',
-  });
-})l
+  })
+})
     
    
   }
@@ -56,13 +56,13 @@ export default class Registration extends React.Component {
       <form onSubmit={this.handleSubmit}>
         
           Name:<br/>
-          <input type="text" name="name" onChange={this.handleChange} /> <br/>
+          <input type="text" name="name" name={this.state.name} onChange={this.handleChange} /> <br/>
           surname:<br/>
-          <input type="text" name="surname" onChange={this.handleChange} /> <br/>
+          <input type="text" name="surname" surname={this.state.surname} onChange={this.handleChange} /> <br/>
           Email:<br/>
-          <input type="text" name="email" onChange={this.handleChange} /> <br/>
+          <input type="text" name="email" email={this.state.email} onChange={this.handleChange} /> <br/>
          Password:<br/>
-          <input type="password" name="password" onChange={this.handleChange} /> <br/><br/>
+          <input type="password" name="password" password={this.state.password} onChange={this.handleChange} /> <br/><br/>
         
         <input type="submit" value="Submit" />
       </form>
