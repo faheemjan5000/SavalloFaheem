@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Redressed&display=swap');
 body{
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
-    }
+    font-family: 'Redressed', cursive;    
+}
     #navbar{
         width: 100%;
         height: 10%;
@@ -13,6 +15,8 @@ body{
     align-items: center;
     align-content: center;
     text-align: center;
+    font-family: 'Redressed', cursive;    
+
     }
     #conteiner{
         width: 100%;
@@ -20,11 +24,13 @@ body{
         margin: 0%;
     padding: 0;
     min-height: 900px;
+    font-family: 'Redressed', cursive;    
+
     }
     #login{
         position: absolute;
        right: 0px;
-    top:65px;
+    top:54px;
     }
     h1{
         display: inline-block;
@@ -34,6 +40,8 @@ body{
         align-items: center;
     align-content: center;
     text-align: center;
+    font-family: 'Redressed', cursive;    
+font-size: 20px;
     }
  
     .prodotti{
@@ -47,3 +55,33 @@ body{
         color:green;
         font-size: 30px;
     }
+    #myProgress {
+        width: 100%;
+        background-color: grey;
+      }
+      
+      #myBar {
+        width: 1%;
+        height: 30px;
+        background-color: green;
+      }
+      .elementCarrello img{
+
+width: 50px;
+height: 50px;
+
+      }
+      button img{
+
+        width: 20px;
+        height: 20px;
+
+      }
+      tr img{
+        width: 60px;
+        height: 60px;
+      }
+      a img{
+        width: 40px;
+        height: 40px;
+      }

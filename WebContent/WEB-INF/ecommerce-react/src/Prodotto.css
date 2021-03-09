@@ -24,7 +24,8 @@ body{
     #login{
         position: absolute;
        right: 0px;
-    top:65px;
+    top:50px;
+    font-size: 18px;
     }
     h1{
         display: inline-block;

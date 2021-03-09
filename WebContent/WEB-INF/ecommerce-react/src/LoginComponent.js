@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
+import Carrello from "./Carrello";
 
 export default class LoginComponent extends React.Component {
  
@@ -15,6 +16,7 @@ export default class LoginComponent extends React.Component {
         };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.apriCarrelo=this.apriCarrelo.bind(this);
     }
     
     handleChange(event) {
@@ -60,6 +62,18 @@ export default class LoginComponent extends React.Component {
 
     }
 
+
+apriCarrelo(){
+
+  ReactDOM.render(
+    <React.StrictMode>
+<Carrello />
+    </React.StrictMode>,
+    document.getElementById('Content')
+  );
+
+}
+
       render() {
         const { error } = this.state;
         if (error) {
@@ -93,6 +107,7 @@ export default class LoginComponent extends React.Component {
 Benvenuto {this.user.firstName}   {this.user.secondName}
 </div>
       );else return(
+        <div id="login">
         <form onSubmit={this.handleSubmit}>
         <label>
           Nome:
@@ -114,12 +129,13 @@ Benvenuto {this.user.firstName}   {this.user.secondName}
         </label>
         <input type="submit" value="Submit" />
       </form>
-            );
+      </div>);
             else{
               return (
+                <div id="login">
                 <form onSubmit={this.handleSubmit}>
               <label>
-          Nome:
+          Email:
           <input
             type="text"
             name="email"
@@ -136,11 +152,13 @@ Benvenuto {this.user.firstName}   {this.user.secondName}
             onChange={this.handleChange}
           />
         </label>
-            <input type="submit" value="Submit" />
-            <p>Attenzione email o password errataa</p>
+            <input type="submit" value="Login" />
+            <button type="button" onClick={this.apriCarrelo}> <img src="images/cart.png"></img> </button>
           </form>
-                );
-
+         
+             </div>
+            );
+               
             }
 
     

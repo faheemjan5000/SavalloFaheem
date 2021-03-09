@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -131,9 +132,9 @@ public class MyRestControllerApi {
 
 
 	@RequestMapping(value = {"/carrello"}, method = RequestMethod.POST)
-	public List<OrderItem>  carrello(int id,int quan, HttpSession session) {
-		Users utente=(Users)session.getAttribute("users");
-		Order confermato=orderItemService.addOrderItem(utente.getId(), id, quan);
+	public List<OrderItem>  carrello(@RequestBody OrderItem d, HttpSession session) {
+		
+		Order confermato=orderItemService.addOrderItem(14, d.getProductID(), d.getQuantity());
 		if(confermato!=null) {
 			List<OrderItem> carrello= orderItemService.findByOrderID(confermato.getId());
 			session.setAttribute("carrello", carrello);
@@ -164,15 +165,27 @@ public class MyRestControllerApi {
 		return ordini;
 	}
 
-	@GetMapping("/carrello")
-	public List<OrderItem> carrello( Model model ,HttpSession session ) {
-		Users utente=(Users)session.getAttribute("users");
-		Order c= orderService.findByUserIDAndState(utente.getId(), "open");
+	@GetMapping("/carrello/get")
+	public List<OrderItem> carrelloGET( Model model ,HttpSession session ) {
+		Order c= orderService.findByUserIDAndState(14, "open");
 		List<OrderItem> carrello= orderItemService.findByOrderID(c.getId());
 		model.addAttribute("carrello", carrello);
+		System.out.println("getCarrello........"+carrello.toString());
+		
 		return carrello; 
 
 	}
+	
+	@DeleteMapping("/carrello/delete/{id}")
+	public List<OrderItem> carrelloDelete( @PathVariable int id , Model model ,HttpSession session ) {
+		Order c= orderService.findByUserIDAndState(14, "open");
+		orderItemService.deleteOrderItemByID(id);
+		List<OrderItem> carrello= orderItemService.findByOrderID(c.getId());
+		
+		return carrello; 
+
+	}
+	
 }
 
 

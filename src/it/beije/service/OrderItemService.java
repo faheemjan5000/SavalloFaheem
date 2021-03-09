@@ -57,5 +57,8 @@ OrderItem temp= orderItemRepository.findByOrderIDAndProductID(ordine.getId(), id
 public List<OrderItem> findByOrderID(int orderID) {
 	return orderItemRepository.findByOrderID(orderID);
 }
-
+public void deleteOrderItemByID(int orderID) {
+	 orderItemRepository.deleteById(orderID);
 }
+}
+
