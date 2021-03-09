@@ -7,10 +7,12 @@ import reportWebVitals from './reportWebVitals';
 export default class Registration extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {name: '',
                   surname : '',
                   email : '',
                   password : ''
+
                  };
 
     this.handleChange = this.handleChange.bind(this);
@@ -39,8 +41,22 @@ export default class Registration extends React.Component {
 }
 
   handleSubmit(event) {
-    alert('Av user was submitted: ' + this.state.name);
-    event.preventDefault();
+
+   event.preventDefault();
+   fetch('http://localhost:8080/SavalloFaheem/api/users/add', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    name: 'this.state.name',
+    surname: 'this.state.surname',
+    email: 'this.state.email',
+    password: 'this.state.password',
+  })
+})
+
     
    
   }
@@ -54,14 +70,10 @@ export default class Registration extends React.Component {
       <form onSubmit={this.handleSubmit}>
         
           Name:<br/>
+
           <input type="text" name="name" value={this.state.name} onChange={this.handleChange} /> <br/>
-          surname:<br/>
-          <input type="text" name="surname" value={this.state.surname} onChange={this.handleChange} /> <br/>
-          Email:<br/>
-          <input type="text" name="name"  value={this.state.email} onChange={this.handleChange} /> <br/>
-         Password:<br/>
-          <input type="password" name="password" value={this.state.password} onChange={this.handleChange} /> <br/><br/>
-        
+          <input type="text" name="email" email={this.state.email} onChange={this.handleChange} /> <br/>
+          <input type="password" name="password" password={this.state.password} onChange={this.handleChange} /> <br/><br/>
         <input type="submit" value="Submit" />
       </form>
         </div>
